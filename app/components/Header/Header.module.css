@@ -1,0 +1,28 @@
+.header {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--badges);
+  background: var(--badges);
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+}
+
+.logo_icon {
+  display: block;
+  width: 104px;
+  height: 16px;
+}
+
+.nav {
+}
+
+.navigation {
+  display: flex;
+  gap: 32px;
+}
+
+.nav_text {
+}
