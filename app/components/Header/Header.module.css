@@ -2,6 +2,9 @@
   padding: 26px 0;
   border-bottom: 1px solid var(--badges);
   background: var(--badges);
+}
+
+.wrapper {
   display: flex;
   justify-content: space-between;
 }
@@ -16,13 +19,28 @@
   height: 16px;
 }
 
-.nav {
-}
-
 .navigation {
   display: flex;
   gap: 32px;
 }
 
+.nav_home {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  text-align: center;
+}
+
+.nav_home:hover {
+  color: var(--button-hover);
+}
+
 .nav_text {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  text-align: center;
+  color: var(--main);
 }

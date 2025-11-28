@@ -1,4 +1,75 @@
 .container {
   margin: 0px auto;
+  width: 100%;
+  max-width: 1440px;
   padding: 0 120px;
+}
+
+.home {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 436px 329px 60px 328px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.2)), url(/images/Hero/Picture-min.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (min-resolution: 2x), (-webkit-device-pixel-ratio: 2x) {
+  .home {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.2)), url(/images/Hero/Picture-min-1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+.box {
+  max-width: 783px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 120%;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.text {
+  margin-bottom: 40px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  text-align: center;
+  color: var(--white);
+}
+
+.button {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--white);
+  padding: 12px 88px;
+  border-radius: 12px;
+  background: var(--button);
+  justify-content: center;
+  align-items: center;
+}
+
+.button:hover {
+  background: var(--button-hover);
 }

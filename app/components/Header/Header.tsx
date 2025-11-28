@@ -6,23 +6,25 @@ const Header = () => {
   return (
     <header className={css.header}>
       <div className={cssMain.container}>
-        <div className={css.logo}>
-          <Link href="/" aria-label="Home">
-            <svg className={css.logo_icon} width="104" height="16">
-              <use href="/public/" />
-            </svg>
-          </Link>
+        <div className={css.wrapper}>
+          <div className={css.logo}>
+            <Link href="/" aria-label="Home">
+              <svg className={css.logo_icon} width="104" height="16">
+                <use href="/sprite.svg#icon-Logo" />
+              </svg>
+            </Link>
+          </div>
+          <nav className={css.nav} aria-label="Main Navigation">
+            <ul className={css.navigation}>
+              <li className={css.nav_home}>
+                <Link href="/">Home</Link>
+              </li>
+              <li className={css.nav_text}>
+                <Link href="/catalog">Catalog</Link>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <nav className={css.nav} aria-label="Main Navigation">
-          <ul className={css.navigation}>
-            <li className={css.nav_text}>
-              <Link href="/">Home</Link>
-            </li>
-            <li className={css.nav_text}>
-              <Link href="/catalog">Catalog</Link>
-            </li>
-          </ul>
-        </nav>
       </div>
     </header>
   );

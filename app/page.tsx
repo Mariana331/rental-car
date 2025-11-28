@@ -1,9 +1,17 @@
-import styles from "./page.module.css";
+import css from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main></main>
-    </div>
+    <main>
+      <div className={css.home}>
+        <div className={css.box}>
+          <h1 className={css.title}>Find your perfect rental car</h1>
+          <p className={css.text}>
+            Reliable and budget-friendly rentals for any journey
+          </p>
+          <button className={css.button}>View Catalog</button>
+        </div>
+      </div>
+    </main>
   );
 }

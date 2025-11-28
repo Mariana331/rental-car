@@ -1,0 +1,198 @@
+"use client";
+
+import { useState } from "react";
+import { format } from "date-fns";
+import css from "@/app/components/BookCar/BookCar.module.css";
+import { Car } from "@/app/types/car";
+import Image from "next/image";
+
+export interface BookCarProps {
+  car: Car;
+}
+
+const BookCar = ({ car }: BookCarProps) => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    date: null as Date | null,
+    comment: "",
+  });
+
+  return (
+    <div className={css.booking}>
+      <div className={css.image}>
+        <Image
+          src={car.img}
+          alt={`${car.brand} ${car.model}`}
+          width={640}
+          height={512}
+          className={css.carImage}
+          priority
+        />
+      </div>
+
+      {/* BOOK FORM */}
+      <div className={css.bookInfo}>
+        <h3 className={css.title}>Book your car now</h3>
+        <p className={css.bookText}>
+          Stay connected! We are always ready to help you.
+        </p>
+
+        <form className={css.bookForm}>
+          <input
+            className={css.input}
+            type="text"
+            name="name"
+            placeholder="Name*"
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+          />
+
+          <input
+            className={css.input}
+            type="email"
+            name="email"
+            placeholder="Email*"
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+          />
+
+          <div className={css.date}>
+            <input
+              className={css.input}
+              placeholder="Booking date"
+              value={form.date ? format(form.date, "MMMM d, yyyy") : ""}
+              readOnly
+            />
+          </div>
+
+          <textarea
+            className={css.field}
+            name="comment"
+            placeholder="Comment"
+            value={form.comment}
+            onChange={(e) => setForm({ ...form, comment: e.target.value })}
+            rows={3}
+          />
+
+          <button className={css.btn}>Send</button>
+        </form>
+      </div>
+
+      {/* CAR DETAILS */}
+      <div className={css.details}>
+        <div className={css.detailsTitle}>
+          <h2 className={css.detailsTitleH}>
+            {car.brand} <span className={css.blue_text}>{car.model}</span>,{" "}
+            {car.year}
+            <span className={css.detailsSpan}> ID: {car.id}</span>
+          </h2>
+        </div>
+
+        <div className={css.location}>
+          <div className={css.locationInfo}>
+            <svg width={16} height={16}>
+              <use href="/sprite.svg#icon-Location" />
+            </svg>
+
+            <p className={css.locationInfoText}>
+              {car.address} • Mileage: {car.mileage}
+            </p>
+          </div>
+
+          <p className={css.locationInfoPrice}>${car.rentalPrice}</p>
+        </div>
+
+        <p className={css.description}>{car.description}</p>
+      </div>
+
+      {/* RENTAL CONDITIONS */}
+      <div className={css.carInfo}>
+        {car.rentalConditions?.length > 0 && (
+          <div className={css.rental}>
+            <h2 className={css.rentalTitle}>Rental Conditions:</h2>
+            <ul className={css.rentalList}>
+              {car.rentalConditions.map((cond, idx) => (
+                <li key={idx} className={css.retralItem}>
+                  <svg width={16} height={16}>
+                    <use href="/sprite.svg#icon-check-circle" />
+                  </svg>
+                  <span className={css.text}>{cond}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* SPECIFICATIONS */}
+        <div className={css.specifications}>
+          <h2 className={css.specificationsTitle}>Car Specifications:</h2>
+          <ul className={css.specificationsList}>
+            <li className={css.specificationsItem}>
+              <svg width={16} height={16}>
+                <use href="/sprite.svg#icon-calendar" />
+              </svg>
+              <p className={css.text}>Year: {car.year}</p>
+            </li>
+
+            <li className={css.specificationsItem}>
+              <svg width={16} height={16}>
+                <use href="/sprite.svg#icon-car" />
+              </svg>
+              <p className={css.text}>Type: {car.type}</p>
+            </li>
+
+            <li className={css.specificationsItem}>
+              <svg width={16} height={16}>
+                <use href="/sprite.svg#icon-fuel-pump" />
+              </svg>
+              <p className={css.text}>
+                Fuel Consumption: {car.fuelConsumption}
+              </p>
+            </li>
+
+            <li className={css.specificationsItem}>
+              <svg width={16} height={16}>
+                <use href="/sprite.svg#icon-gear" />
+              </svg>
+              <p className={css.text}>Engine Size: {car.engineSize}</p>
+            </li>
+          </ul>
+        </div>
+
+        {/* ACCESSORIES */}
+        {(car.accessories?.length > 0 || car.functionalities?.length > 0) && (
+          <div className={css.functional}>
+            <h2 className={css.functionalTitle}>
+              Accessories & Functionalities:
+            </h2>
+
+            <ul className={css.accessoriesList}>
+              {car.accessories?.map((access, idx) => (
+                <li key={idx} className={css.accessoriesItem}>
+                  <svg width={16} height={16}>
+                    <use href="/sprite.svg#icon-check-circle" />
+                  </svg>
+                  <span className={css.text}>{access}</span>
+                </li>
+              ))}
+            </ul>
+
+            <ul className={css.functionList}>
+              {car.functionalities?.map((fun, idx) => (
+                <li key={idx} className={css.accessoriesItem}>
+                  <svg width={16} height={16}>
+                    <use href="/sprite.svg#icon-check-circle" />
+                  </svg>
+                  <span className={css.text}>{fun}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default BookCar;

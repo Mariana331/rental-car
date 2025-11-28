@@ -1,0 +1,84 @@
+.filterBox {
+  padding: 84px 258px 56px 258px;
+  display: flex;
+}
+
+.forms {
+  display: flex;
+  margin: 0 auto;
+  align-items: flex-end;
+}
+
+.formOne {
+  margin-right: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.oneBrand {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--gray);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.formTwo {
+  margin-right: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formThree {
+  margin-right: 16px;
+}
+
+.mileageInputs {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  background: var(--inputs);
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--inputs);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mileageInputs input::placeholder {
+  color: var(--main);
+  opacity: 1;
+}
+
+.input {
+  box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
+  background: var(--white);
+  border: 1px solid var(--inputs);
+  border-radius: 12px;
+  flex: 1;
+  padding: 12px;
+  font-size: 14px;
+  box-sizing: border-box;
+  background: var(--inputs);
+}
+
+.clearBtn {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--white);
+  background: var(--button);
+  border-radius: 12px;
+  padding: 12px 51px;
+  height: 44px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.clearBtn:hover {
+  background: var(--button-hover);
+}
