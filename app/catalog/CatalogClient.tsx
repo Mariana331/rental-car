@@ -48,17 +48,15 @@ export default function CatalogClient({ initialCars }: { initialCars: Car[] }) {
 
     const res = await getCars(params);
 
-    if (res.cars.length === 0) {
-      setHasMore(false);
-      setLoading(false);
-      return;
-    }
-
     setCars((prev) => [...prev, ...res.cars]);
     setPage(nextPage);
+
+    if (res.cars.length < 12) {
+      setHasMore(false);
+    }
+
     setLoading(false);
   };
-
   return (
     <div>
       <CarList cars={cars} />
