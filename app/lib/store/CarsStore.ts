@@ -66,14 +66,12 @@ export const useCarsStore = create<CarsStore>()(
               ...newFilters.mileage,
             },
           },
-          cars: [],
           page: 1,
         })),
 
       clearFilters: () =>
         set(() => ({
           filters: {},
-          cars: [],
           page: 1,
         })),
 

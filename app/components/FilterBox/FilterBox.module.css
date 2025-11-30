@@ -63,9 +63,9 @@
   border-radius: 12px 0 0 12px;
 }
 
-.mileageInputs input::placeholder {
-  color: var(--main);
-  opacity: 1;
+.mileageInputs input {
+  outline: none;
+  border: 1px solid var(--inputs);
 }
 
 .input {

@@ -34,10 +34,9 @@ This project is a web application for browsing and filtering rental cars. Users 
 ```bash
 git clone https://github.com/Mariana331/rental-car.git
 cd rental-car
+
 2. Install dependencies:
-
 bash
-
 npm install
 # or
 yarn install
@@ -49,7 +48,6 @@ npm run dev
 yarn dev
 
 4. Open in your browser:
-arduino
 http://localhost:3000
 
 Usage

@@ -8,6 +8,8 @@ import Image from "next/image";
 import cssMain from "@/app/page.module.css";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export interface BookCarProps {
   car: Car;
@@ -20,6 +22,19 @@ const BookCar = ({ car }: BookCarProps) => {
     date: null as Date | null,
     comment: "",
   });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      setForm({ name: "", email: "", date: null, comment: "" });
+      toast.success("Your car has been successfully booked!");
+    } catch (err) {
+      toast.error("Failed to book the car. Please try again.");
+    }
+  };
 
   const dateRef = useRef<HTMLInputElement | null>(null);
 
@@ -59,7 +74,7 @@ const BookCar = ({ car }: BookCarProps) => {
               Stay connected! We are always ready to help you.
             </p>
 
-            <form className={css.bookForm}>
+            <form className={css.bookForm} onSubmit={handleSubmit}>
               <input
                 className={css.input}
                 type="text"
@@ -97,8 +112,11 @@ const BookCar = ({ car }: BookCarProps) => {
                 rows={3}
               />
 
-              <button className={css.btn}>Send</button>
+              <button className={css.btn} type="submit">
+                Send
+              </button>
             </form>
+            <ToastContainer position="top-right" autoClose={3000} />
           </div>
         </div>
 
