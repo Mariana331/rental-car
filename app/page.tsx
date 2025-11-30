@@ -1,4 +1,5 @@
 import css from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -9,7 +10,9 @@ export default function Home() {
           <p className={css.text}>
             Reliable and budget-friendly rentals for any journey
           </p>
-          <button className={css.button}>View Catalog</button>
+          <Link className={css.button} href={"/catalog"}>
+            View Catalog
+          </Link>
         </div>
       </div>
     </main>

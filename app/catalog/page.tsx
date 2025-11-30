@@ -1,7 +1,7 @@
 import FilterBox from "../components/FilterBox/FilterBox";
-import CarList from "../components/CarList/CarList";
 import { getCars } from "../services/serverApi";
 import { FetchCarsParams } from "../types/car";
+import CatalogClient from "./CatalogClient";
 
 const Catalog = async () => {
   const params: FetchCarsParams = {
@@ -18,7 +18,7 @@ const Catalog = async () => {
   return (
     <div>
       <FilterBox />
-      <CarList cars={cars} />
+      <CatalogClient initialCars={cars} />
     </div>
   );
 };

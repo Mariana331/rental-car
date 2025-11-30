@@ -16,7 +16,6 @@ const CarList = ({ cars }: CarListProps) => {
 
   return (
     <div className={cssMain.container}>
-      {" "}
       <ul className={css.list}>
         {cars.map((car) => (
           <li key={car.id} className={css.listItem}>
@@ -46,8 +45,8 @@ const CarList = ({ cars }: CarListProps) => {
 
             <div className={css.info}>
               <h2 className={css.title}>
-                {car.brand}
-                <span className={css.blue_text}>{car.model}</span>, {car.year}
+                {car.brand} <span className={css.blue_text}>{car.model}</span>,{" "}
+                {car.year}
               </h2>
               <p className={css.price}>${car.rentalPrice}</p>
             </div>

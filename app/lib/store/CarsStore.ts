@@ -30,6 +30,8 @@ interface CarsStore {
 
   page: number;
   setPage: (page: number) => void;
+
+  resetPage: () => void;
 }
 
 export const useCarsStore = create<CarsStore>()(
@@ -54,9 +56,16 @@ export const useCarsStore = create<CarsStore>()(
         })),
 
       filters: {},
-      setFilters: (filters) =>
-        set(() => ({
-          filters,
+      setFilters: (newFilters) =>
+        set((state) => ({
+          filters: {
+            ...state.filters,
+            ...newFilters,
+            mileage: {
+              ...state.filters.mileage,
+              ...newFilters.mileage,
+            },
+          },
           cars: [],
           page: 1,
         })),
@@ -77,6 +86,8 @@ export const useCarsStore = create<CarsStore>()(
 
       page: 1,
       setPage: (page) => set({ page }),
+
+      resetPage: () => set({ page: 1 }),
     }),
     {
       name: "cars-store",

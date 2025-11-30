@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getCarById } from "@/app/services/serverApi";
+import { getCarById } from "@/app/services/clientApi";
 import BookCar from "@/app/components/BookCar/BookCar";
 import { useParams } from "next/navigation";
 

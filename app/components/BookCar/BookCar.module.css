@@ -1,10 +1,19 @@
-.booking {
+.wrapper {
+  display: flex;
+  gap: 72px;
+  padding-bottom: 104px;
+}
+
+.wrapperLeft {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 84px;
+  gap: 40px;
 }
 
 .image {
-  margin-bottom: 40px;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 19px;
   overflow: hidden;
 }
 
@@ -16,7 +25,12 @@
 }
 
 .bookInfo {
-  margin-bottom: 24px;
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .title {
@@ -36,6 +50,13 @@
   color: var(--gray);
 }
 
+.bookForm {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .input {
   font-family: var(--font-family);
   font-weight: 500;
@@ -49,10 +70,23 @@
   outline: none;
 }
 
+.date {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .field {
-  padding: 12px 20px 56px 20px;
-  background: var(--inputs);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--gray);
   border-radius: 12px;
+  padding: 12px 20px;
+  background: var(--inputs);
+  border: 1px solid transparent;
+  outline: none;
 }
 
 .btn {
@@ -65,31 +99,34 @@
   border-radius: 12px;
   background: var(--button);
   cursor: pointer;
+  max-width: 156px;
+  margin: 0 auto;
 }
 
 .btn:hover {
   background: var(--button-hover);
 }
 
-.detailsTitle {
+.wrapperRight {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 104px;
+}
+
+.detail {
+  margin-bottom: 68px;
+}
+
+.details {
   margin-bottom: 8px;
 }
 
-.detailsTitleH {
+.detailsTitle {
   font-family: var(--font-family);
   font-weight: 600;
   font-size: 24px;
   line-height: 133%;
-  text-align: center;
   color: var(--main);
-}
-
-.detailsSpan {
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 125%;
-  color: var(--gray);
 }
 
 .location {
@@ -97,7 +134,19 @@
 }
 
 .locationInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   margin-bottom: 16px;
+}
+
+.location_icon {
+  margin-right: 2px;
+  display: block;
+}
+
+.locationSpan {
+  margin-left: 16px;
 }
 
 .locationInfoPrice {
@@ -106,17 +155,6 @@
   font-size: 24px;
   line-height: 133%;
   color: var(--button);
-}
-
-.description {
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 125%;
-  color: var(--main);
-}
-
-.carInfo {
 }
 
 .rental {
@@ -140,14 +178,24 @@
 
 .rentalItem {
   display: flex;
-  align-items: flex-start;
-  gap: 2px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
 .rental_icon {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
+  display: block;
+}
+
+.infoText {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
 }
 
 .specifications {
@@ -167,12 +215,14 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-bottom: 16px;
 }
 
 .specificationsItem {
-}
-
-.functional {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
 .functionalTitle {
@@ -181,12 +231,21 @@
   font-size: 20px;
   line-height: 120%;
   color: var(--main);
+  margin-bottom: 20px;
 }
 
 .accessoriesList {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-bottom: 16px;
+}
+
+.accessoriesItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
 .functionList {

@@ -1,0 +1,16 @@
+.btnLoadMore {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+  padding: 12px 38px;
+  border: 1px solid var(--button);
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto 124px auto;
+}
+
+.btnLoadMore {
+  border: 1px solid var(--button-hover);
+}

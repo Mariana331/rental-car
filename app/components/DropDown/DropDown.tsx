@@ -35,9 +35,12 @@ export default function DropDown({
     <div className={css.wrapper} ref={boxRef}>
       <p className={css.label}>{label}</p>
 
-      <button className={css.toggle} onClick={() => setOpen(!open)}>
+      <button
+        type="button"
+        className={css.toggle}
+        onClick={() => setOpen(!open)}
+      >
         <span>{value || placeholder}</span>
-
         <svg
           width="16"
           height="16"

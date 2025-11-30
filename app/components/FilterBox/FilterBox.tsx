@@ -1,55 +1,66 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import css from "./FilterBox.module.css";
-import { ChangeEvent } from "react";
-import { useCarsStore } from "@/app/lib/store/CarsStore";
-import { CAR_BRANDS, PRICES } from "@/app/constants/Brand";
 import DropDown from "../DropDown/DropDown";
+import { useQuery } from "@tanstack/react-query";
+import { getBrands } from "@/app/services/clientApi";
+import { PRICES } from "@/app/constants/Brand";
+import { useCarsStore } from "@/app/lib/store/CarsStore";
 
-const FilterBox = () => {
-  const { filters, setFilters } = useCarsStore();
+export default function FiltersCars() {
+  const { filters, setFilters, setPage } = useCarsStore();
 
-  const handleMileage = (
-    e: ChangeEvent<HTMLInputElement>,
-    key: "from" | "to"
-  ) => {
+  const { data: brands = [] } = useQuery({
+    queryKey: ["brands"],
+    queryFn: getBrands,
+    staleTime: Infinity,
+  });
+
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [mileageFrom, setMileageFrom] = useState("");
+  const [mileageTo, setMileageTo] = useState("");
+
+  useEffect(() => {
+    setSelectedBrand(filters.brand || "");
+    setSelectedPrice(filters.rentalPrice || "");
+    setMileageFrom(filters.mileage?.from?.toString() || "");
+    setMileageTo(filters.mileage?.to?.toString() || "");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     setFilters({
-      ...filters,
+      brand: selectedBrand || undefined,
+      rentalPrice: selectedPrice || undefined,
       mileage: {
-        ...filters.mileage,
-        [key]: Number(e.target.value),
+        from: mileageFrom ? Number(mileageFrom) : undefined,
+        to: mileageTo ? Number(mileageTo) : undefined,
       },
     });
+
+    setPage(1);
   };
 
   return (
-    <div className={css.filterBox}>
+    <form className={css.filterBox} onSubmit={handleSubmit}>
       <div className={css.forms}>
         <div className={css.formOne}>
           <DropDown
             label="Car brand"
             placeholder="Choose a brand"
-            options={CAR_BRANDS}
-            value={filters.brand || ""}
-            onChange={(brand) =>
-              setFilters({
-                ...filters,
-                brand,
-              })
-            }
+            options={brands}
+            value={selectedBrand}
+            onChange={setSelectedBrand}
           />
-
           <DropDown
             label="Price / 1 hour"
-            placeholder="Choose a price"
+            placeholder="Choose price"
             options={PRICES.map((p) => `$${p}`)}
-            value={filters.rentalPrice || ""}
-            onChange={(price) =>
-              setFilters({
-                ...filters,
-                rentalPrice: price.replace("$", ""),
-              })
-            }
+            value={selectedPrice}
+            onChange={setSelectedPrice}
           />
         </div>
 
@@ -57,26 +68,26 @@ const FilterBox = () => {
           <label className={css.oneBrand}>Car mileage/km</label>
           <div className={css.mileageInputs}>
             <input
-              className={css.input}
               type="number"
               placeholder="From"
-              value={filters.mileage?.from || ""}
-              onChange={(e) => handleMileage(e, "from")}
-            />
-
-            <input
+              value={mileageFrom}
+              onChange={(e) => setMileageFrom(e.target.value)}
               className={css.input}
+            />
+            <input
               type="number"
               placeholder="To"
-              value={filters.mileage?.to || ""}
-              onChange={(e) => handleMileage(e, "to")}
+              value={mileageTo}
+              onChange={(e) => setMileageTo(e.target.value)}
+              className={css.input}
             />
           </div>
         </div>
-        <button className={css.clearBtn}>Search</button>
-      </div>
-    </div>
-  );
-};
 
-export default FilterBox;
+        <button type="submit" className={css.clearBtn}>
+          Search
+        </button>
+      </div>
+    </form>
+  );
+}
