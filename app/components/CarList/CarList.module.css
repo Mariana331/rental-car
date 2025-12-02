@@ -33,14 +33,13 @@
 }
 
 .button_icon {
-  fill: none;
-  stroke: var(--gray-light);
-  stroke-width: 2;
+  color: transparent; /* заливка прозора */
+  -webkit-text-stroke: var(--white); /* Білий контур */
+  text-stroke: var(--white); /* дубль для підтримки */
 }
 
 .button_icon_blue {
-  fill: var(--button);
-  stroke: var(--button);
+  color: var(--button);
 }
 
 .info {

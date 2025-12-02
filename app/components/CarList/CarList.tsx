@@ -33,7 +33,7 @@ const CarList = ({ cars }: CarListProps) => {
               >
                 {favorites.includes(car.id) ? (
                   <svg className={css.button_icon_blue} width={20} height={20}>
-                    <use href="/sprite.svg#icon-favor-blue"></use>
+                    <use href="/sprite.svg#icon-blue"></use>
                   </svg>
                 ) : (
                   <svg className={css.button_icon} width={20} height={20}>
