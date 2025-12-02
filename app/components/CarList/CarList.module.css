@@ -33,12 +33,14 @@
 }
 
 .button_icon {
-  display: block;
-  fill: var(--badges);
+  fill: none;
+  stroke: var(--gray-light);
+  stroke-width: 2;
 }
 
 .button_icon_blue {
   fill: var(--button);
+  stroke: var(--button);
 }
 
 .info {
@@ -49,10 +51,9 @@
 }
 
 .title {
-  font-family: var(--font-family);
+  font-size: 18px;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 125%;
+  line-height: 120%;
   color: var(--main);
 }
 
@@ -61,27 +62,24 @@
 }
 
 .price {
-  font-family: var(--font-family);
+  font-size: 18px;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 125%;
+  line-height: 120%;
   color: var(--main);
 }
 
 .address {
-  font-family: var(--font-family);
   font-weight: 400;
-  font-size: 12px;
-  line-height: 133%;
+  font-size: 14px;
+  line-height: 1.4;
   color: var(--gray);
   margin-bottom: 4px;
 }
 
 .mileage {
-  font-family: var(--font-family);
   font-weight: 400;
-  font-size: 12px;
-  line-height: 133%;
+  font-size: 14px;
+  line-height: 1.4;
   color: var(--gray);
   margin-bottom: 28px;
 }
@@ -93,8 +91,6 @@
   padding: 12px 0;
   border-radius: 12px;
   background: var(--button);
-
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 16px;
   line-height: 125%;

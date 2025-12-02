@@ -26,7 +26,6 @@
 }
 
 .oneBrand {
-  font-family: var(--font-family);
   font-weight: 400;
   font-size: 12px;
   line-height: 133%;
@@ -46,7 +45,6 @@
 }
 
 .mileageInputs {
-  font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   line-height: 125%;
@@ -75,13 +73,13 @@
   border-radius: 12px;
   flex: 1;
   padding: 12px;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 16px;
   box-sizing: border-box;
   background: var(--inputs);
 }
 
 .clearBtn {
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 16px;
   line-height: 125%;
@@ -90,7 +88,8 @@
   border-radius: 12px;
   padding: 12px 51px;
   height: 44px;
-  flex: 1;
+  flex: 0;
+  width: auto;
   cursor: pointer;
 }
 

@@ -34,7 +34,6 @@
 }
 
 .title {
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 20px;
   line-height: 120%;
@@ -43,7 +42,6 @@
 }
 
 .text {
-  font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   line-height: 125%;
@@ -58,7 +56,6 @@
 }
 
 .input {
-  font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   line-height: 125%;
@@ -77,7 +74,6 @@
 }
 
 .field {
-  font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   line-height: 125%;
@@ -91,7 +87,6 @@
 
 .btn {
   padding: 12px 58px;
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 16px;
   line-height: 125%;
@@ -122,7 +117,6 @@
 }
 
 .detailsTitle {
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 24px;
   line-height: 133%;
@@ -150,7 +144,6 @@
 }
 
 .locationInfoPrice {
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 24px;
   line-height: 133%;
@@ -162,7 +155,6 @@
 }
 
 .rentalTitle {
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 20px;
   line-height: 120%;
@@ -191,7 +183,6 @@
 }
 
 .infoText {
-  font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   line-height: 125%;
@@ -203,7 +194,6 @@
 }
 
 .specificationsTitle {
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 20px;
   line-height: 120%;
@@ -226,7 +216,6 @@
 }
 
 .functionalTitle {
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 20px;
   line-height: 120%;
