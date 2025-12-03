@@ -83,6 +83,7 @@
   background: var(--inputs);
   border: 1px solid transparent;
   outline: none;
+  resize: none;
 }
 
 .btn {

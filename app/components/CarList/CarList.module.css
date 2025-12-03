@@ -33,9 +33,9 @@
 }
 
 .button_icon {
-  color: transparent; /* заливка прозора */
-  -webkit-text-stroke: var(--white); /* Білий контур */
-  text-stroke: var(--white); /* дубль для підтримки */
+  color: transparent;
+  -webkit-text-stroke: var(--white);
+  text-stroke: var(--white);
 }
 
 .button_icon_blue {

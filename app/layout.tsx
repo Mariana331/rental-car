@@ -19,9 +19,13 @@ export const inter = Inter({
 export const metadata: Metadata = {
   title: "RentalCar",
   description: "Car gallery",
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     title: "RentalCar",
     description: "Car gallery",
+    url: "https://localhost:3000",
     images: [
       {
         url: "", // placeholder

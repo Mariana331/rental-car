@@ -1,0 +1,6 @@
+.flatpickr-calendar {
+  border: 1px solid var(--button);
+  box-shadow: none;
+  border-radius: 16px;
+  padding: 8px;
+}

@@ -58,7 +58,7 @@ export default function FiltersCars() {
           <DropDown
             label="Price / 1 hour"
             placeholder="Choose price"
-            options={PRICES.map((p) => `$${p}`)}
+            options={PRICES.map((p) => `${p}`)}
             value={selectedPrice}
             onChange={setSelectedPrice}
           />
