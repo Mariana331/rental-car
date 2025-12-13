@@ -25,13 +25,13 @@ Pagination and asynchronous data loading are supported.
 
 ## 🛠️ Technologies Used
 
-[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)  
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)  
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)  
-[![Zustand](https://img.shields.io/badge/Zustand-00BFFF?style=for-the-badge)](https://github.com/pmndrs/zustand)  
-[![React Query](https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge)](https://tanstack.com/query/latest)  
-[![CSS Modules](https://img.shields.io/badge/CSS_Modules-1f8dd6?style=for-the-badge)](https://github.com/css-modules/css-modules)  
-[![Axios](https://img.shields.io/badge/Axios-671DDF?style=for-the-badge)](https://axios-http.com/)
+[![React](https://img.shields.io/badge/React-00D8FF?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-111827?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-2563EB?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Zustand](https://img.shields.io/badge/Zustand-0EA5E9?style=for-the-badge)](https://github.com/pmndrs/zustand)
+[![React Query](https://img.shields.io/badge/React_Query-E11D48?style=for-the-badge)](https://tanstack.com/query/latest)
+[![CSS Modules](https://img.shields.io/badge/CSS_Modules-6366F1?style=for-the-badge)](https://github.com/css-modules/css-modules)
+[![Axios](https://img.shields.io/badge/Axios-7C3AED?style=for-the-badge)](https://axios-http.com/)
 
 ---
 
