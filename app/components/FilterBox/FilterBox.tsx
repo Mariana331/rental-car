@@ -34,7 +34,7 @@ export default function FiltersCars() {
     e.preventDefault();
     setFilters({
       brand: selectedBrand || undefined,
-      rentalPrice: selectedPrice || undefined,
+      rentalPrice: selectedPrice || undefined,git
       mileage: {
         from: mileageFrom ? Number(mileageFrom) : undefined,
         to: mileageTo ? Number(mileageTo) : undefined,
