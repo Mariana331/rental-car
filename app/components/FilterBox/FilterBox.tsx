@@ -22,13 +22,13 @@ export default function FiltersCars() {
   const [mileageFrom, setMileageFrom] = useState("");
   const [mileageTo, setMileageTo] = useState("");
 
-  useEffect(() => {
-    setSelectedBrand(filters.brand || "");
-    setSelectedPrice(filters.rentalPrice || "");
-    setMileageFrom(filters.mileage?.from?.toString() || "");
-    setMileageTo(filters.mileage?.to?.toString() || "");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   setSelectedBrand(filters.brand || "");
+  //   setSelectedPrice(filters.rentalPrice || "");
+  //   setMileageFrom(filters.mileage?.from?.toString() || "");
+  //   setMileageTo(filters.mileage?.to?.toString() || "");
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
