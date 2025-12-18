@@ -4,7 +4,7 @@ import type { Car } from "@/app/types/car";
 
 interface Filters {
   brand?: string;
-  rentalPrice?: string;
+  rentalPrice?: number;
   mileage?: {
     from?: number;
     to?: number;
@@ -13,24 +13,20 @@ interface Filters {
 
 interface CarsStore {
   cars: Car[];
+  favorites: string[];
+  filters: Filters;
+  page: number;
+
   setCars: (cars: Car[]) => void;
   addCars: (cars: Car[]) => void;
   clearCars: () => void;
 
-  favorites: string[];
   toggleFavorite: (id: string) => void;
 
-  filters: Filters;
   setFilters: (filters: Filters) => void;
   clearFilters: () => void;
 
-  selectedCars: Car[];
-  addSelectedCar: (car: Car) => void;
-  clearSelectedCars: () => void;
-
-  page: number;
   setPage: (page: number) => void;
-
   resetPage: () => void;
 }
 
@@ -38,6 +34,11 @@ export const useCarsStore = create<CarsStore>()(
   persist(
     (set) => ({
       cars: [],
+      favorites: [],
+      filters: {},
+      page: 1,
+
+      // ---------- cars ----------
       setCars: (cars) => set({ cars }),
 
       addCars: (cars) =>
@@ -47,7 +48,7 @@ export const useCarsStore = create<CarsStore>()(
 
       clearCars: () => set({ cars: [] }),
 
-      favorites: [],
+      // ---------- favorites ----------
       toggleFavorite: (id) =>
         set((state) => ({
           favorites: state.favorites.includes(id)
@@ -55,36 +56,23 @@ export const useCarsStore = create<CarsStore>()(
             : [...state.favorites, id],
         })),
 
-      filters: {},
-      setFilters: (newFilters) =>
-        set((state) => ({
-          filters: {
-            ...state.filters,
-            ...newFilters,
-            mileage: {
-              ...state.filters.mileage,
-              ...newFilters.mileage,
-            },
-          },
+      // ---------- filters ----------
+      setFilters: (filters) =>
+        set(() => ({
+          filters,
           page: 1,
+          cars: [],
         })),
 
       clearFilters: () =>
         set(() => ({
           filters: {},
           page: 1,
+          cars: [],
         })),
 
-      selectedCars: [],
-      addSelectedCar: (car) =>
-        set((state) => ({
-          selectedCars: [...state.selectedCars, car],
-        })),
-      clearSelectedCars: () => set({ selectedCars: [] }),
-
-      page: 1,
+      // ---------- pagination ----------
       setPage: (page) => set({ page }),
-
       resetPage: () => set({ page: 1 }),
     }),
     {

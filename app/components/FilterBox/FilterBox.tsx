@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import css from "./FilterBox.module.css";
 import DropDown from "../DropDown/DropDown";
 import { useQuery } from "@tanstack/react-query";
@@ -9,7 +9,7 @@ import { PRICES } from "@/app/constants/Brand";
 import { useCarsStore } from "@/app/lib/store/CarsStore";
 
 export default function FiltersCars() {
-  const { filters, setFilters, setPage } = useCarsStore();
+  const { filters, setFilters } = useCarsStore();
 
   const { data: brands = [] } = useQuery({
     queryKey: ["brands"],
@@ -17,31 +17,33 @@ export default function FiltersCars() {
     staleTime: Infinity,
   });
 
-  const [selectedBrand, setSelectedBrand] = useState("");
-  const [selectedPrice, setSelectedPrice] = useState("");
-  const [mileageFrom, setMileageFrom] = useState("");
-  const [mileageTo, setMileageTo] = useState("");
-
-  useEffect(() => {
-    setSelectedBrand(filters.brand || "");
-    setSelectedPrice(filters.rentalPrice || "");
-    setMileageFrom(filters.mileage?.from?.toString() || "");
-    setMileageTo(filters.mileage?.to?.toString() || "");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const [selectedBrand, setSelectedBrand] = useState(filters.brand || "");
+  const [selectedPrice, setSelectedPrice] = useState(
+    filters.rentalPrice !== undefined ? String(filters.rentalPrice) : ""
+  );
+  const [mileageFrom, setMileageFrom] = useState(
+    filters.mileage?.from?.toString() || ""
+  );
+  const [mileageTo, setMileageTo] = useState(
+    filters.mileage?.to?.toString() || ""
+  );
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const mileageFilter =
+      mileageFrom || mileageTo
+        ? {
+            from: mileageFrom ? Number(mileageFrom) : undefined,
+            to: mileageTo ? Number(mileageTo) : undefined,
+          }
+        : undefined;
+
     setFilters({
       brand: selectedBrand || undefined,
-      rentalPrice: selectedPrice || undefined,
-      mileage: {
-        from: mileageFrom ? Number(mileageFrom) : undefined,
-        to: mileageTo ? Number(mileageTo) : undefined,
-      },
+      rentalPrice: selectedPrice ? Number(selectedPrice) : undefined,
+      mileage: mileageFilter,
     });
-
-    setPage(1);
   };
 
   return (
